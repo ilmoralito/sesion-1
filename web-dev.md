@@ -479,6 +479,8 @@ Es posible anidar una tabla dentro de otra, siempre que incluya la estructura co
 
 El elemento HTML `<form>` representa una sección de documento que contiene controles interactivos para enviar información.
 
+Ejemplo
+
 ```
 <form action="" method="get">
   <div>
@@ -493,6 +495,56 @@ El elemento HTML `<form>` representa una sección de documento que contiene cont
     <input type="submit" value="Subscribe!">
   </div>
 </form>
+```
+
+## Atributos principales
+
+- action: La URL que procesa el envío del formulario.
+- autocomplete: Indica si el navegador puede completar automáticamente los valores de los elementos de entrada de forma predeterminada. los atributos de autocompletar en los elementos del formulario lo anulan en `<form>`. Valores posibles `On` y `Off`
+- enctype: 
+  - Si el valor del atributo de método es post, enctype es el tipo MIME del envío del formulario. Valores posibles:
+    - `application/x-www-form-urlencoded` Defecto
+    - `multipart/form-data` Use esto si el formulario contiene elementos `<input>` con `type=file`
+- method: El método HTTP con el que enviar el formulario. Posibles valores son: `GET`, `POST`
+- novalidate: Este atributo booleano indica que el formulario no debe validarse cuando se envía. Si este atributo no está establecido (y por lo tanto el formulario está validado), puede ser reemplazado por un atributo formnovalidate en un elemento `<button>`, `<input type="submit">` o `<input type="image">` perteneciente a la forma.
+
+Elementos
+
+### El elemento `<input>`
+
+```
+<label for="name">Name (4 to 8 characters):</label>
+<input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10">
+```
+
+### El elemento `<select>`
+
+```
+<label for="pet-select">Choose a pet:</label>
+<select name="pets" id="pet-select">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+</select> 
+```
+
+### El elemento `<textarea>`
+
+```
+<label for="story">Tell us your story:</label>
+<textarea id="story" name="story" rows="5" cols="33">It was a dark and stormy night</textarea>
+```
+
+### El elemento `<button>`
+
+```
+<button type="button">
+    Add to favorites
+</button>
 ```
 
 Mayor informacion https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form

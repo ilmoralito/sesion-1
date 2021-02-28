@@ -21,6 +21,16 @@ Temas
   - Aplicar estilo a las cosas según su ubicación en un documento
 - Cómo está estructurado CSS
 - Cómo funciona CSS
+- El modelo de caja
+  - ¿Qué es el modelo de caja CSS?
+    - Partes de la caja
+  - El modelo de caja CSS estándar
+  - Utilice DevTools del navegador para ver el modelo de caja
+  - Márgenes, relleno y bordes
+    - Margen
+    - Bordes
+    - Relleno
+  - Bloque en línea
 
 ## ¿Qué es CSS?
 
@@ -340,3 +350,140 @@ body h1 + p .special {
   padding: 5px;
 }
 ```
+
+# El modelo de caja
+
+En CSS, en general, hay dos tipos de cajas: **cajas de bloque** y **cajas en línea**. Estas características se refieren a cómo se comporta el cuadro en términos de flujo de página y en relación con otros cuadros de la página:
+
+Si una caja se define como un bloque, se comportará de las siguientes formas:
+
+- La caja se termina en una nueva línea.
+- La caja se extenderá en la dirección en línea para llenar el espacio disponible en su contenedor. En la mayoría de los casos esto significa que la caja será tan ancha como su contenedor, llenando el 100% del espacio disponible.
+- Se respetan los valores de las propiedades de ancho y alto.
+- El relleno, el margen y el borde harán que otros elementos se alejen del cuadro.
+
+A menos que decidamos cambiar el tipo de visualización a en línea, elementos como los `<h1>`, `<div>` y `<p>` todos usan bloque como su tipo de visualización exterior de forma predeterminada.
+
+Si una caja tiene un tipo de pantalla exterior en línea, entonces:
+
+- La caja no se romperá en una nueva línea.
+- Las propiedades de ancho y alto no se aplicarán.
+- Se aplicarán el relleno, los márgenes y los bordes verticales, pero no harán que otros cuadros en línea se alejen del cuadro.
+- Se aplicarán el relleno horizontal, los márgenes y los bordes y harán que otros cuadros en línea se alejen del cuadro.
+
+El elemento `<a>`, utilizado para los enlaces, `<span>`, `<em>` y `<strong>` son todos ejemplos de elementos que se mostrarán en línea de forma predeterminada.
+
+> El tipo de caja que se aplica a un elemento se define mediante valores de propiedad de `display`, como bloque y en línea, y se relaciona con el valor exterior de visualización.
+
+## ¿Qué es el modelo de caja CSS?
+
+El modelo de caja CSS completo se aplica a las cajas de bloque, las cajas en línea solo usan parte del comportamiento definido en el modelo de caja. El modelo define cómo las diferentes partes de un cuadro (margen, borde, relleno y contenido) trabajan juntas para crear un cuadro que se puede ver en la página.
+
+### Partes de la caja
+
+El siguiente diagrama muestra las capas:
+
+![box model](./box-model.png)
+
+## El modelo de caja CSS estándar
+
+En el modelo de caja estándar, si se da a una caja un atributo de ancho y alto, esto define el ancho y la altura del cuadro de contenido. Luego, cualquier relleno y borde se agrega a ese ancho y alto para obtener el tamaño total que ocupa la caja.
+
+De esta forma
+
+```
+.box {
+  width: 350px;
+  height: 150px;
+  margin: 10px;
+  padding: 25px;
+  border: 5px solid black;
+}
+```
+
+El espacio que ocupará esta caja usando el modelo de caja estándar será en realidad 410px (350 + 25 + 25 + 5 + 5) y la altura 210px (150 + 25 + 25 + 5 + 5), ya que el relleno y el borde son añadido al ancho utilizado para el cuadro de contenido.
+
+## Utilice DevTools del navegador para ver el modelo de caja
+
+Las herramientas de desarrollo de su navegador pueden facilitar la comprensión del modelo de caja. Si inspecciona un elemento en DevTools de por ejemplo Firefox, puede ver el tamaño del elemento ademas de su margen, relleno y borde. 
+
+
+![box model devtools](./box-model-devtools.png)
+
+## Márgenes, relleno y bordes
+
+Exploremos estas propiedades con más detalle.
+
+### Márgenes
+
+El margen es un espacio invisible alrededor de una caja. Empuja otros elementos fuera de la caja. Los márgenes pueden tener valores positivos o negativos. Establecer un margen negativo en un lado de su cuadro puede hacer que se superponga con otras cosas en la página.
+
+Podemos controlar todos los márgenes de un elemento a la vez usando la propiedad `margin`, o cada lado individualmente usando las propiedades equivalentes a mano:
+
+
+- [margin-top](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)
+- [margin-right](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right)
+- [margin-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom)
+- [margin-left](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left)
+
+### Relleno
+
+El relleno se encuentra entre el borde y el área de contenido. A diferencia de los márgenes, no puede tener cantidades negativas de relleno, por lo que el valor debe ser 0 o un valor positivo.
+
+Podemos controlar el relleno en cada lado de un elemento individualmente usando la propiedad [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), o cada lado individualmente usando las propiedades individuales equivalentes:
+
+- [padding-top](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top)
+- [padding-right](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right)
+- [padding-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom)
+- [padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)
+
+### Borde
+
+El borde se dibuja entre el margen y el relleno de un cuadro. Si está utilizando el modelo de caja estándar, el tamaño del borde se agrega al ancho y alto de la caja. Si está utilizando el modelo de cuadro alternativo, el tamaño del borde hace que el cuadro de contenido sea más pequeño, ya que ocupa parte del ancho y alto disponibles.
+
+Para dar estilo a los bordes, hay una gran cantidad de propiedades: hay cuatro bordes y cada borde tiene un estilo, ancho y color que tal vez queramos manipular.
+
+Se puede establecer el ancho, el estilo o el color de los cuatro bordes a la vez utilizando la propiedad [borde](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
+
+Para establecer las propiedades de cada lado individualmente, puede usar:
+
+- [border-top](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top)
+- [border-right](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right)
+- [border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)
+- [border-left](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left)
+
+Para establecer el ancho, estilo o el color de todos los lados, puede usar:
+
+- [border-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)
+- [border-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)
+- [border-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)
+
+Para establecer el ancho, el estilo o el color de un solo lado, puede usar una de las propiedades individuales:
+
+- [border-top-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width)
+- [border-top-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-style)
+- [border-top-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color)
+- [border-right-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color)
+- [border-right-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-style)
+- [border-right-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-color)
+- [border-bottom-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width)
+- [border-bottom-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-style)
+- [border-bottom-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color)
+- [border-left-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width)
+- [border-left-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-style)
+- [border-left-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-color)
+
+## Bloque en línea
+
+Existe un valor especial de visualización, que proporciona un término medio entre `inline` y `block`. Es útil para situaciones en las que no desea que un elemento salte a una nueva línea, pero desea que respete el ancho y la altura y evite la superposición.
+
+Un elemento con `display: inline-block` hace que un subconjunto del bloque cosas que ya conocemos:
+
+- Se respetan las propiedades `width` y `height`.
+- `padding`, `margin` y `border` provocarán que otros elementos se alejen del cuadro.
+
+Sin embargo, no se salta a una nueva línea.
+
+
+
+

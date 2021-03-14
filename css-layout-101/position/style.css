@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #ddd;
+    font-size: 1em;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul.position-values li {
+    margin-bottom: 10px;
+}
+
+ul.example-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.example-list li {
+    padding: 10px;
+    border: 1px dashed tomato;
+    background-color: white;
+    margin-bottom: 10px;
+    position: static; /* No hay ningun cambio */
+}
+
+ul.example-list li.item-2 {
+    background-color: goldenrod;
+    position: relative;
+    left: 25px;
+    top: 25px;
+}
+
+ul.example-list.positioned {
+    position: relative;
+}
+
+ul.example-list.positioned li.item1-2 {
+    background-color: tomato;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+h1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+/* sticky */
+
+ul.sticky-example {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.sticky-example li {
+    padding: 15px 10px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+ul.sticky-example li.active {
+    background-color: tomato;
+    color: white;
+    position: sticky;
+    top: 0;
+}

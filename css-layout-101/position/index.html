@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Position</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>CSS position 101</h1>
+            <p>
+                La propiedad CSS de posición establece cómo se coloca un
+                elemento en un documento. Las propiedades <strong>top</strong>,
+                <strong>right</strong>, <strong>bottom</strong> e
+                <strong>left</strong> determinan la ubicación final de los
+                elementos posicionados.
+            </p>
+
+            <p>Los valores posibles son los siguientes</p>
+
+            <ul class="position-values">
+                <li>
+                    <strong>static</strong> El elemento se coloca de acuerdo con
+                    el flujo normal del documento. Las propiedades
+                    <strong>top</strong>, <strong>right</strong>,
+                    <strong>left</strong>, <strong>bottom</strong> y del
+                    <strong>z-index</strong> no tienen ningún efecto. Este es el
+                    valor predeterminado.
+                </li>
+                <li>
+                    <strong>relative</strong> El elemento se coloca de acuerdo
+                    con el flujo normal del documento y luego se desplaza con
+                    respecto a sí mismo en función de los valores
+                    <strong>top</strong>, <strong>right</strong>,
+                    <strong>left</strong>, <strong>bottom</strong> y del El
+                    desplazamiento no afecta la posición de ningún otro
+                    elemento; por lo tanto, el espacio dado para el elemento en
+                    el diseño de la página es el mismo que si la posición fuera
+                    estática.
+                </li>
+                <li>
+                    <strong>absolute</strong> El elemento se elimina del flujo
+                    de documentos normal y no se crea espacio para el elemento
+                    en el diseño de la página. Está posicionado en relación con
+                    su antepasado posicionado más cercano, si lo hay; de lo
+                    contrario, se coloca en relación con el bloque contenedor
+                    inicial. Su posición final está determinada por los valores
+                    de <strong>top</strong>, <strong>right</strong>,
+                    <strong>left</strong>, <strong>bottom</strong>
+                </li>
+                <li>
+                    <strong>fixed</strong> El elemento se elimina del flujo de
+                    documentos normal y no se crea espacio para el elemento en
+                    el diseño de la página. Se coloca en relación con el bloque
+                    contenedor inicial establecido por la ventana gráfica. Su
+                    posición final está determinada por los valores de
+                    <strong>top</strong>, <strong>right</strong>,
+                    <strong>left</strong>, <strong>bottom</strong>
+                </li>
+                <li>
+                    <strong>sticky</strong> El elemento se posiciona de acuerdo
+                    con el flujo normal del documento, y luego se desplaza con
+                    respecto a su ancestro de desplazamiento más cercano y al
+                    bloque contenedor (ancestro de nivel de bloque más cercano),
+                    según los valores de <strong>top</strong>,
+                    <strong>right</strong>, <strong>left</strong>,
+                    <strong>bottom</strong>. El desplazamiento no afecta la
+                    posición de ningún otro elemento.
+                </li>
+            </ul>
+
+            <h2>Ejemplo</h2>
+
+            <h3>position: static</h3>
+
+            <ul class="example-list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+
+            <h3>position: relative</h3>
+
+            <ul class="example-list">
+                <li>Item 1</li>
+                <li class="item-2">Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+
+            <h3>position: absolute</h3>
+
+            <ul class="example-list positioned">
+                <li>Item 1</li>
+                <li class="item1-2">Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+
+            <h3>position: fixed</h3>
+
+            <p>Ver codigo asignado al elemento <strong>h1</strong></p>
+
+            <h3>position: sticky</h3>
+
+            <ul class="sticky-example">
+                <li>item-1</li>
+                <li>item-2</li>
+                <li>item-3</li>
+                <li>item-4</li>
+                <li>item-5</li>
+                <li>item-6</li>
+                <li>item-7</li>
+                <li>item-8</li>
+                <li>item-9</li>
+                <li class="active">item-10</li>
+                <li>item-11</li>
+                <li>item-12</li>
+                <li>item-13</li>
+                <li>item-14</li>
+                <li>item-15</li>
+                <li>item-16</li>
+                <li>item-17</li>
+                <li>item-18</li>
+                <li>item-19</li>
+                <li class="active">item-20</li>
+                <li>item-21</li>
+                <li>item-22</li>
+                <li>item-23</li>
+                <li>item-24</li>
+                <li>item-25</li>
+                <li>item-26</li>
+                <li>item-27</li>
+                <li>item-28</li>
+                <li>item-29</li>
+                <li class="active">item-30</li>
+                <li>item-31</li>
+                <li>item-32</li>
+                <li>item-33</li>
+                <li>item-34</li>
+                <li>item-35</li>
+                <li>item-36</li>
+                <li>item-37</li>
+                <li>item-38</li>
+                <li>item-39</li>
+                <li class="active">item-40</li>
+                <li>item-41</li>
+                <li>item-42</li>
+                <li>item-43</li>
+                <li>item-44</li>
+                <li>item-45</li>
+                <li>item-46</li>
+                <li>item-47</li>
+                <li>item-48</li>
+                <li>item-49</li>
+                <li>item-50</li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+.sidebar {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    width: 300px;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -340px;
+
+    transition: all 0.4s;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.toggle-sidebar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
